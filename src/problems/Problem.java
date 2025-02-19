@@ -12,6 +12,8 @@ public interface Problem<S> {
     public S getInitState();
 
     //Calculation for finding the cost of the goal state
+    public double goalCost();
+
 
     public void printState(S state);
 
