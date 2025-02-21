@@ -16,5 +16,4 @@ public interface Problem<S> {
 
 
     public void printState(S state);
-
 }

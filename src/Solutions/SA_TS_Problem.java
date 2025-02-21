@@ -3,7 +3,7 @@ package Solutions;
 import core_algorithms.SimulatedAnnealing;
 import problems.TSProblem;
 
-public class SA_TS_Problem extends SimulatedAnnealing<int[]> {
+public class SA_TS_Problem extends SimulatedAnnealing<int[][]> {
 
     private final static long INIT_TIME = 1;
 
@@ -20,7 +20,13 @@ public class SA_TS_Problem extends SimulatedAnnealing<int[]> {
     }
 
     public static void main(String[] args) {
-        TSProblem problem = new TSProblem(new TSProblem());
-        problem.search();
+        int[][] board = new int[][]{
+                {0, 3, 4, 2, 7},
+                {3, 0, 4, 6, 3},
+                {4, 4, 0, 5, 8},
+                {2, 6, 5, 0, 6},
+                {7, 3, 8, 6, 0},
+        };
+        TSProblem problem = new TSProblem(board);
     }
 }

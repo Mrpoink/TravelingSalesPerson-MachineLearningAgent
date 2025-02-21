@@ -33,7 +33,27 @@ public abstract class GeneticAlgorithm<G> {
         return sample;
     }
 
-    public Individual<G> select(List<Individual<G>> population){
+    public Individual<G> select(
+            List<Individual<G>> population,
+            Individual<G> indiv){
+        double sum = 0;
+        for (Individual<G> i : population) {
+            sum += i.getFitnessScore();
+        }
+        Individual<G> selected = null;
+        do {
+            double v = new Random().nextDouble(sum);
+            double cumulativeSum = 0;
+            for(Individual<G> i : population){
+                cumulativeSum += i.getFitnessScore();
+                if (v <= cumulativeSum){
+                    selected = i;
+                    break;
+                }
+            }
+        } while(selected == indiv);
+
+        return selected;
         //Actual selection algorithm
     }
 
