@@ -19,16 +19,23 @@ public class SA_TSP extends SimulatedAnnealing<int[]> {
     }
 
     public static void main(String[] args) {
-        int[][] distances = {
-                {0, 3, 4, 2, 7},
-                {3, 0, 4, 6, 3},
-                {4, 4, 0, 5, 8},
-                {2, 6, 5, 0, 6},
-                {7, 3, 8, 6, 0},
+        TSP.Sample[] samples = {
+                TSP.Sample.SAMPLE_5,
+                TSP.Sample.SAMPLE_6,
+                TSP.Sample.SAMPLE_17,
+                TSP.Sample.SAMPLE_26
         };
 
-        TSP problem = new TSP(distances);
-        SA_TSP solver = new SA_TSP(problem);
-        solver.search();
+        int[] sampleNumbers = {5, 6, 17, 26};
+
+        for (int i = 0; i < samples.length; i++) {
+            System.out.println("\nRunning SA_TSP on SAMPLE_" + sampleNumbers[i]);
+
+            TSP problem = new TSP(samples[i].distanceMatrix());
+            SA_TSP solver = new SA_TSP(problem);
+            solver.search();
+        }
     }
+
+
 }
