@@ -1,19 +1,19 @@
-package problems;
+    package problems;
 
-//State parameter of data type state
-public interface Problem<S> {
-    //Given current state, generate random child state(node)
-    public S generateNewState(S current);
+    //State parameter of data type state
+    public interface Problem<S> {
+        //Given current state, generate random child state(node)
+        public S generateNewState(S current);
 
-    //Must be able to determine cost of a given state
-    public int cost(S state);
+        //Must be able to determine cost of a given state
+        public int cost(S state);
 
-    //get initial state
-    public S getInitState();
+        //get initial state
+        public S getInitState();
 
-    //Calculation for finding the cost of the goal state
-    public double goalCost();
+        //Calculation for finding the cost of the goal state
+        public double goalCost();
 
 
-    public void printState(S state);
-}
+        public void printState(S state);
+    }
