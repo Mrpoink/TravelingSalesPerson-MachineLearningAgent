@@ -99,7 +99,7 @@ public class GA_TSP extends GeneticAlgorithm<List<Integer>> {
         int[] sample = {5, 6, 17, 26};
 
         for (int i = 0; i < sample.length; i++) {
-            System.out.println("\nRunning Samples: " + sample[i]);
+            System.out.println("\nRunning Sample: " + sample[i]);
 
             GA_TSP gaTSP = new GA_TSP(1000, 0.1, 0.2, samples[i].distanceMatrix());
             List<Individual<List<Integer>>> initialPopulation = gaTSP.generateInitialPopulation(50);
