@@ -98,6 +98,7 @@ public abstract class GeneticAlgorithm<G> {
             if (population.get(0).getFitnessScore() > best.getFitnessScore()) {
                 best = population.get(0);
                 bestGen = generation;
+
             }
         }
         System.out.println("Best gen: " + bestGen);

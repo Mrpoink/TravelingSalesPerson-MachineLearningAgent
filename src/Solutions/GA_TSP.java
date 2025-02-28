@@ -95,18 +95,49 @@ public class GA_TSP extends GeneticAlgorithm<List<Integer>> {
     }
 
     public static void main(String[] args) {
-        TSP.Sample[] samples = {TSP.Sample.SAMPLE_5, TSP.Sample.SAMPLE_6, TSP.Sample.SAMPLE_17, TSP.Sample.SAMPLE_26};
+        TSP.Sample[] samples = {TSP.Sample.SAMPLE_17, TSP.Sample.SAMPLE_5, TSP.Sample.SAMPLE_6, TSP.Sample.SAMPLE_26};
         int[] sample = {5, 6, 17, 26};
 
         for (int i = 0; i < sample.length; i++) {
             System.out.println("\nRunning Sample: " + sample[i]);
 
-            GA_TSP gaTSP = new GA_TSP(1000, 0.1, 0.2, samples[i].distanceMatrix());
-            List<Individual<List<Integer>>> initialPopulation = gaTSP.generateInitialPopulation(50);
-            Individual<List<Integer>> bestSolution = gaTSP.evolve(initialPopulation);
+            if (sample[i] == 5){
+                GA_TSP gaTSP = new GA_TSP(50, 0.45, 0.2, samples[1].distanceMatrix());
+                List<Individual<List<Integer>>> initialPopulation = gaTSP.generateInitialPopulation(500);
+                Individual<List<Integer>> bestSolution = gaTSP.evolve(initialPopulation);
 
-            System.out.println("Best Tour Found: " + bestSolution.getChromosome());
-            System.out.println("Tour Distance: " + (1.0 / bestSolution.getFitnessScore()));
+                System.out.println("Best Tour Found: " + bestSolution.getChromosome());
+                System.out.println("Tour Distance: " + (1.0 / bestSolution.getFitnessScore()));
+            }
+
+            if (sample[i] == 6){
+                GA_TSP gaTSP = new GA_TSP(50, 0.45, 0.2, samples[2].distanceMatrix());
+                List<Individual<List<Integer>>> initialPopulation = gaTSP.generateInitialPopulation(500);
+                Individual<List<Integer>> bestSolution = gaTSP.evolve(initialPopulation);
+
+                System.out.println("Best Tour Found: " + bestSolution.getChromosome());
+                System.out.println("Tour Distance: " + (1.0 / bestSolution.getFitnessScore()));
+            }
+
+            if (sample[i] == 17) {
+
+                GA_TSP gaTSP = new GA_TSP(75, 0.45, 0.2, samples[0].distanceMatrix());
+                List<Individual<List<Integer>>> initialPopulation = gaTSP.generateInitialPopulation(5000);
+                Individual<List<Integer>> bestSolution = gaTSP.evolve(initialPopulation);
+
+                System.out.println("Best Tour Found: " + bestSolution.getChromosome());
+                System.out.println("Tour Distance: " + (1.0 / bestSolution.getFitnessScore()));
+            }
+
+            if (sample[i] == 26) {
+                GA_TSP gaTSP = new GA_TSP(1000, 0.3, 0.45, samples[3].distanceMatrix());
+                List<Individual<List<Integer>>> initialPopulation = gaTSP.generateInitialPopulation(5000);
+                Individual<List<Integer>> bestSolution = gaTSP.evolve(initialPopulation);
+
+                System.out.println("Best Tour Found: " + bestSolution.getChromosome());
+                System.out.println("Tour Distance: " + (1.0 / bestSolution.getFitnessScore()));
+            }
+
         }
     }
 }
